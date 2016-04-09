@@ -1,0 +1,234 @@
+/* 主体main部分 */
+.container .main {
+	float: left;
+	width: 830px;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+/* 主体main中部 */
+.container .main .center {
+	float: left;
+	width: 550px;
+}
+.container .main .center section {
+	position: relative;
+	width: 100%;
+	margin-bottom: 10px;
+}
+.container .main .center section >h2 {
+	height: 21px;
+	color: #000;
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 21px;
+	border-bottom: 1px solid #E9E9E9;
+}
+.container .main .center section >h2 >a {
+	float: right;
+	color: #999;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+/* 焦点轮播图部分 */
+.container .main .center .slide {
+	height: 100px;
+	overflow: hidden;
+}
+.container .main .center .slide .slide-btns {
+	position: absolute;
+	right: 10px;
+	bottom: 5px;
+}
+.container .main .center .slide .slide-btns li {
+	float: left;
+}
+.container .main .center .slide .slide-btns li a {
+	margin-left: 5px;
+	padding: 0 4px;
+	background-color: #593325;
+	color: #FFF;
+	font-size: 12px;
+}
+.container .main .center .slide .slide-btns li a.on {
+	background-color: #FF8400;
+}
+
+/* 热门导航部分 */
+.container .main .center .hot-nav article {
+	padding: 0 10px;
+	color: #000;
+}
+.container .main .center .hot-nav dl {
+	width: 100%;
+	padding: 5px 0;
+	line-height: 22px;
+	border-bottom: 1px solid #E9E9E9;
+}
+.container .main .center .hot-nav dl:last-of-type {
+	border-bottom: none;
+}
+.container .main .center .hot-nav dt {
+	float: left;
+	width: 60px;
+	height: 30px;
+	font-size: 13px;
+}
+.container .main .center .hot-nav dt.onerow {
+	height: auto;
+}
+.container .main .center .hot-nav dd {
+	float: left;
+	font-size: 12px;
+}
+.container .main .center .hot-nav dd a {
+	display: block;
+	width: 65px;
+	height: 22px;
+	margin-right: 10px;
+	text-align: justify;
+}
+.container .main .center .hot-nav dd a:hover {
+	color: #FF7200;
+}
+
+/* 精选内容部分 */
+.container .main .center .good-topics article {
+	padding: 5px 10px;
+}
+.container .main .center .good-topics .topic-img,
+.container .main .center .good-topics .topic-list {
+	float: left;
+}
+.container .main .center .good-topics .topic-img {
+	width: 250px;
+	height: 160px;
+	overflow: hidden;
+}
+.container .main .center .good-topics .topic-img img {
+	width: 100%;
+	height: 100%;
+}
+.container .main .center .good-topics .topic-list {
+	margin-left: 10px;
+	color: #000;
+}
+.container .main .center .good-topics .topic-list h2 {
+	width: 270px;
+	margin-top: 15px;
+	margin-bottom: 30px;
+	font-size: 16px;
+	font-weight: bold;
+}
+.container .main .center .good-topics .topic-list li {
+	margin: 7px 0;
+	font-size: 13px;
+}
+.container .main .center .good-topics .topic-list li a:hover {
+	color: #FF7200;
+}
+
+/* 最新点评部分 */
+.container .main .center .new-comment article {
+	padding: 0 10px;
+}
+.container .main .center .new-comment .floor {
+	position: relative;
+	padding-bottom: 5px;
+	margin: 5px 0;
+	border-bottom: 1px solid #E9E9E9;
+}
+.container .main .center .new-comment .floor:last-of-type {
+	border-bottom: none;
+}
+.container .main .center .new-comment .floor img {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.container .main .center .new-comment .floor .content { 
+	margin-left: 55px;
+	color: #000;
+	font-size: 12px;
+}
+.container .main .center .new-comment .floor .content h3 {
+	margin-bottom: 3px;
+}
+.container .main .center .new-comment .floor .content h3 a {
+	color: #000;
+	font-weight: bold;
+}
+.container .main .center .new-comment .floor .content h3 a:hover {
+	color: #FF7200;
+}
+.container .main .center .new-comment .floor .content h3 span {
+	float: right;
+	color: #AAA;
+}
+.container .main .center .new-comment .floor .content .comment {
+	margin-bottom: 3px;
+}
+.container .main .center .new-comment .floor .content .comment dl {
+	display: inline-block;
+}
+.container .main .center .new-comment .floor .content .comment dl dt,
+.container .main .center .new-comment .floor .content .comment dl dd {
+	display: inline-block;
+}
+.container .main .center .new-comment .floor .content .comment dl dd {
+	color: #FF8400;
+}
+.container .main .center .new-comment .floor .content p {
+	margin-bottom: 7px;
+	text-align: justify;
+}
+
+/* 右侧排行榜 */
+.container .main .right {
+	float: left;
+	width: 220px;
+	margin-left: 10px;
+}
+.container .main .right section {
+	margin-bottom: 10px;
+	border: 1px solid #E9E9E9;
+}
+.container .main .right section h3 {
+	padding: 3px 0;
+	font-weight: bold;
+	text-indent: 10px;
+	border-bottom: 1px solid #E9E9E9;
+}
+.container .main .right section ul li {
+	margin-top: 4px;
+}
+.container .main .right section ul li a {
+	position: relative;
+	display: block;
+}
+.container .main .right section ul li a img {
+	position: absolute;
+	top: 0;
+	left: 10px;
+	width: 50px;
+	height: 48px;
+}
+.container .main .right section ul li a .resume {
+	padding: 5px 0 10px 0;
+	margin-left: 65px;
+}
+.container .main .right section ul li a .resume h4 {
+	color: #000;
+}
+.container .main .right section ul li a .resume span {
+	font-size: 12px;
+}
+.container .main .right section ul li a .resume span:hover {
+	color: #FF7200;
+}
+.container .main .right section ul >a{
+	margin-left: 10px;
+	font-size: 10px;
+}
+

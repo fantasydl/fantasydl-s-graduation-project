@@ -1,0 +1,41 @@
+/* 列表部分 */
+.container article {
+	float: left;
+	width: 720px;
+	margin-top: 10px;
+	margin-left: 10px;
+	border: 1px solid #E9E9E9;
+}
+
+/* 回退nav */
+.container article .back-nav {
+	padding-left: 10px;
+	margin-bottom: 10px;
+	font-size: 13px;
+	line-height: 20px;
+	border-bottom: 1px solid #E9E9E9;
+}
+.container article .back-nav a:hover {
+	color: #FF7200;
+	text-decoration: underline;
+}
+.container article .back-nav i {
+	margin: 0 6px;
+	color: #BBB;
+	font-size: 15px;
+}
+
+.container article li {
+	position: relative;
+	padding-bottom: 10px;
+}
+.container article li >img {
+	position: absolute;
+	top: 0;
+	left: 10px;
+	width: 130px;
+	height: 100px;
+}
+.container article li .content {
+	margin-left: 155px;
+}
