@@ -4,7 +4,6 @@
 	width: 720px;
 	margin-top: 10px;
 	margin-left: 10px;
-	border: 1px solid #E9E9E9;
 }
 
 /* 回退nav */
@@ -13,7 +12,9 @@
 	margin-bottom: 10px;
 	font-size: 13px;
 	line-height: 20px;
-	border-bottom: 1px solid #E9E9E9;
+}
+.container article .back-nav a {
+	padding: 0 10px 0 0;
 }
 .container article .back-nav a:hover {
 	color: #FF7200;
@@ -25,9 +26,16 @@
 	font-size: 15px;
 }
 
+.container article ul {
+	padding-top: 10px;
+	border: 1px solid #E9E9E9;
+}
+/* 每行内容 */
 .container article li {
 	position: relative;
 	padding-bottom: 10px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #E9E9E9;
 }
 .container article li >img {
 	position: absolute;
@@ -38,4 +46,58 @@
 }
 .container article li .content {
 	margin-left: 155px;
+	font-size: 12px;
+}
+.container article li .content h2 {
+	line-height: 22px;
+	margin-bottom: 5px;
+}
+.container article li .content h2 a{
+	color: #000;
+	font-size: 17px;
+	font-weight: bold;
+}
+.container article li .content h2 a:hover {
+	color: #FF7200;
+	text-decoration: underline;
+}
+.container article li .content .resume {
+	margin-bottom: 10px;
+}
+.container article li .content .resume span {
+	padding-right: 5px;
+}
+.container article li .content .resume span.bor-rgt {
+	margin-left: 5px;
+	border-right : 1px solid #999;
+}
+.container article li .content .resume dl {
+	float: right;
+}
+.container article li .content .resume dl dt,
+.container article li .content .resume dl dd {
+	float: left;
+	color: #AAA;
+}
+.container article li .content .resume dl dd {
+	padding-right: 5px; 
+}
+.container article li .content address {
+	padding-bottom: 10px;
+	margin-right: 20px;
+	border-bottom: 1px solid #E9E9E9;
+}
+.container article li .content .comment {
+	padding: 10px 0;
+}
+.container article li .content .comment span {
+	color: #FF7200;
+}
+
+
+
+/* 消除span之间的高低差别 */
+.star-mark {
+	color: #FFF;
+	text-indent: -100px;
 }
