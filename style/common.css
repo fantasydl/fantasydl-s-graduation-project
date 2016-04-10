@@ -222,6 +222,20 @@ footer div{
 	text-align: center;
 }
 
+
+/* 按钮 */
+.btn {
+	background-color: #FF8400;
+	color: #FFF;
+	font-weight: bold;
+	border: none;
+	border-radius: 7px;
+	cursor: pointer;
+}
+.btn:hover {
+	background-color: #FF7200;
+}
+
 /* 评分 */
 .star-mark {
 	display: inline-block;
@@ -254,4 +268,38 @@ footer div{
 }
 .star5 {
 	background-position: 0 2px;
+}
+
+.star-mark-m {
+	display: inline-block;
+	width: 90px;
+	height: 16px;
+	background-image: url('../images/remark-shop.png');
+	background-repeat: no-repeat;
+	text-indent: 100px;
+	line-height: 15px;
+}
+.star0-m {
+	background-position: 0 -820px;
+}
+.star1-m {
+	background-position: 0 -800px;
+}
+.star2-m {
+	background-position: 0 -780px;
+}
+.star3-m {
+	background-position: 0 -760px;
+}
+.star35-m {
+	background-position: 0 -740px;
+}
+.star4-m {
+	background-position: 0 -720px;
+}
+.star45-m {
+	background-position: 0 -700px;
+}
+.star5-m {
+	background-position: 0 -680px;
 }
