@@ -314,10 +314,11 @@ footer div{
 	left: 50%;
 	width: 300px;
 	padding: 10px;
-	background-color: #FFF;
+	background-color: #FFF !important;
 	border: 2px solid #E9E9E9;
 	border-radius: 8px;
 	transform: translate(-50%,-50%);
+	z-index: 999;
 }
 .login-modal h2 {
 	font-size: 24px;
