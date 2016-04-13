@@ -221,6 +221,9 @@
 .container .main .right section ul li a .resume h4 {
 	color: #000;
 }
+.container .main .right section ul li a .resume h4:hover {
+	color: #FF7200;
+}
 .container .main .right section ul li a .resume span {
 	font-size: 12px;
 }

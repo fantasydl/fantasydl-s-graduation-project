@@ -7,14 +7,19 @@
 	<link rel="stylesheet" type="text/css" href="style/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="style/common.css">
 	<link rel="stylesheet" type="text/css" href="style/list.css">
-</head>
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+	<script type="text/javascript" src="http://cdn.bootcss.com/angular-ui-router/0.2.18/angular-ui-router.js"></script>
+	<script type="text/javascript" src="script/app.js"></script>
+	<script type="text/javascript" src="script/login.js"></script>
+	<script type="text/javascript" src="script/getComment.js"></script>
+	<script type="text/javascript" src="script/getshopList.js"></script></head>
 <body>
-	<header>
-		<div class="login-part" ng-controller="doLogin">
+	<header ng-controller="doLogin">
+		<div class="login-part">
 			<ul ng-hide="isLogined">
 				<li><a href="javascript:;" ng-click="">服务中心</a></li>
-				<li><a href="javascript:;" ng-click="login()">登录</a></li>
-				<li><a href="javascript:;" ng-click="register()">注册</a></li>
+				<li><a href="javascript:;" ng-click="showLogin()">登录</a></li>
+				<li><a href="javascript:;" ng-click="showRegister()">注册</a></li>
 			</ul>
 			<ul ng-show="isLogined">
 				<li><a href="javascript:;" ng-click="exit()">退出</a></li>
@@ -40,6 +45,40 @@
 				<li><a href="" class="tab">论坛</a></li>
 			</ul>
 		</nav>
+		<div class="login-modal" id="loginModal" style="display: none;">
+			<h2>登录</h2>
+			<ul class="input-groups">
+				<li>
+					<label>用户名</label>
+					<input type="text" id="username" placeholder="请输入用户名">
+				</li>
+				<li>
+					<label>密码</label>
+					<input type="password" id="userpsw" placeholder="请输入密码">
+				</li>
+			</ul>
+			<div class="btn-groups">
+				<button class="btn" ng-click="login()">登录</button>
+				<button class="btn" ng-click="close1()">取消</button>
+			</div>
+		</div>
+		<div class="login-modal" id="registerModal" style="display: none;">
+			<h2>快速注册</h2>
+			<ul class="input-groups">
+				<li>
+					<label>用户名</label>
+					<input type="text" id="registername" placeholder="请输入用户名">
+				</li>
+				<li>
+					<label>密码</label>
+					<input type="password" id="registerpsw" placeholder="请输入密码">
+				</li>
+			</ul>
+			<div class="btn-groups">
+				<button class="btn" ng-click="register()">注册</button>
+				<button class="btn" ng-click="close2()">取消</button>
+			</div>
+		</div>
 	</header>
 	<div class="container clearfix">
 		<aside class="clearfix">
@@ -147,121 +186,29 @@
 			</nav>
 			<img src="images/aside.jpg">
 		</aside>
-		<article>
+		<article ng-controller="getshopList">
 			<div class="back-nav"><a href="">首页</a><i class="fa fa-angle-right"></i><a href="">景点</a><i class="fa fa-angle-right"></i><a href="">热门景点</a></div>
 			<ul>
-				<li>
+				<li ng-repeat="item in list">
 					<img src="images/yuyuan.jpg">
 					<div class="content">
-						<h2><a href="">豫园</a></h2>
+						<h2><a href="detail.html">{{item.shopname}}</a></h2>
 						<div class="resume">
-							<span class="star-mark star4">4</span>
-							<span class="bor-rgt">123条 点评</span>
-							<span>人均 ￥67</span>
+							<span class="star-mark star{{item.score}}">{{item.score}}</span>
+							<span class="bor-rgt">{{item.commentsum}}条 点评</span>
+							<span>人均 ￥{{item.avg_cost}}</span>
 							<dl>
-								<dt>总分</dt>
-								<dd>3.9</dd>
+								<dt>内容</dt>
+								<dd>{{item.avg_score1}}</dd>
 								<dt>环境</dt>
-								<dd>4.2</dd>
-								<dt>服务</dt>
-								<dd>4.0</dd>
+								<dd>{{item.avg_score2}}</dd>
+								<dt>划算</dt>
+								<dd>{{item.avg_score3}}</dd>
 							</dl>
 						</div>
-						<address>地址</address>
+						<address>{{item.address}}</address>
 						<div class="comment">
-							<p><span>最新评论：</span>小吃不错，就是人太多了</p>
-						</div>
-					</div>
-				</li>
-				<li>
-					<img src="images/yuyuan.jpg">
-					<div class="content">
-						<h2><a href="">豫园</a></h2>
-						<div class="resume">
-							<span class="star-mark star4">4</span>
-							<span class="bor-rgt">123条 点评</span>
-							<span>人均 ￥67</span>
-							<dl>
-								<dt>总分</dt>
-								<dd>3.9</dd>
-								<dt>环境</dt>
-								<dd>4.2</dd>
-								<dt>服务</dt>
-								<dd>4.0</dd>
-							</dl>
-						</div>
-						<address>地址</address>
-						<div class="comment">
-							<p><span>最新评论：</span>小吃不错，就是人太多了</p>
-						</div>
-					</div>
-				</li>
-				<li>
-					<img src="images/yuyuan.jpg">
-					<div class="content">
-						<h2><a href="">豫园</a></h2>
-						<div class="resume">
-							<span class="star-mark star4">4</span>
-							<span class="bor-rgt">123条 点评</span>
-							<span>人均 ￥67</span>
-							<dl>
-								<dt>总分</dt>
-								<dd>3.9</dd>
-								<dt>环境</dt>
-								<dd>4.2</dd>
-								<dt>服务</dt>
-								<dd>4.0</dd>
-							</dl>
-						</div>
-						<address>地址</address>
-						<div class="comment">
-							<p><span>最新评论：</span>小吃不错，就是人太多了</p>
-						</div>
-					</div>
-				</li>
-				<li>
-					<img src="images/yuyuan.jpg">
-					<div class="content">
-						<h2><a href="">豫园</a></h2>
-						<div class="resume">
-							<span class="star-mark star4">4</span>
-							<span class="bor-rgt">123条 点评</span>
-							<span>人均 ￥67</span>
-							<dl>
-								<dt>总分</dt>
-								<dd>3.9</dd>
-								<dt>环境</dt>
-								<dd>4.2</dd>
-								<dt>服务</dt>
-								<dd>4.0</dd>
-							</dl>
-						</div>
-						<address>地址</address>
-						<div class="comment">
-							<p><span>最新评论：</span>小吃不错，就是人太多了</p>
-						</div>
-					</div>
-				</li>
-				<li>
-					<img src="images/yuyuan.jpg">
-					<div class="content">
-						<h2><a href="">豫园</a></h2>
-						<div class="resume">
-							<span class="star-mark star4">4</span>
-							<span class="bor-rgt">123条 点评</span>
-							<span>人均 ￥67</span>
-							<dl>
-								<dt>总分</dt>
-								<dd>3.9</dd>
-								<dt>环境</dt>
-								<dd>4.2</dd>
-								<dt>服务</dt>
-								<dd>4.0</dd>
-							</dl>
-						</div>
-						<address>地址</address>
-						<div class="comment">
-							<p><span>最新评论：</span>小吃不错，就是人太多了</p>
+							<p><span>最新评论：</span>{{item.newcomment}}</p>
 						</div>
 					</div>
 				</li>
@@ -271,9 +218,5 @@
 	<footer>
 		<div>@fantasydl-s-granduation-project</div>
 	</footer>
-	<script type="text/javascript" src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
-	<script type="text/javascript" src="http://cdn.bootcss.com/angular-ui-router/0.2.18/angular-ui-router.js"></script>
-	<script type="text/javascript" src="script/app.js"></script>
-	<script type="text/javascript" src="script/login.js"></script>
 </body>
 </html>

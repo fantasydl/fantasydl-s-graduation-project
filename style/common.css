@@ -138,8 +138,8 @@ header .nav-part ul,
 	padding: 0 10px 0 20px;
 	font-size: 12px;
 	line-height: 47px;
-	border-right: 1px solid #E9E9E9;
-	border-bottom: 1px solid #E9E9E9;
+	border: 1px solid #E9E9E9;
+	border-top: none;
 }
 .container aside nav >dl:hover {
 	border-right: none;

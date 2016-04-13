@@ -11,6 +11,7 @@
 	<script type="text/javascript" src="http://cdn.bootcss.com/angular-ui-router/0.2.18/angular-ui-router.js"></script>
 	<script type="text/javascript" src="script/app.js"></script>
 	<script type="text/javascript" src="script/login.js"></script>
+	<script type="text/javascript" src="script/getComment.js"></script>
 </head>
 <body>
 	<header ng-controller="doLogin">
@@ -243,60 +244,24 @@
 				</section>
 				<section class="new-comment">
 					<h2>最新点评<a href="">更多</a></h2>
-					<article>
+					<article ng-controller="getComment">
 						<ul>
-							<li class="floor clearfix">
+							<li class="floor clearfix" ng-repeat="item in list">
 								<a href=""><img src="images/icon.jpg"></a>
 								<div class="content">
-									<h3><a href="">Yuki宝oO</a> @ <a href="">丸龟制面(徐汇星游城店)</a><span>16-04-09</span></h3>
+									<h3><a href="">{{item.username}}</a> @ <a href="">{{item.shopname}}</a><span>{{item.date}}</span></h3>
 									<div class="comment">
-										<span class="star-mark star3"></span>
+										<span class="star-mark star{{item.score}}"></span>
 										<dl>
 											<dt>口味:</dt>
-											<dd>3</dd>
+											<dd>{{item.score1}}</dd>
 											<dt>环境:</dt>
-											<dd>3</dd>
+											<dd>{{item.score2}}</dd>
 											<dt>服务:</dt>
-											<dd>3</dd>
+											<dd>{{item.score3}}</dd>
 										</dl>
 									</div>
-									<p>真的不错啊！</p>
-								</div>
-							</li>
-							<li class="floor clearfix">
-								<a href=""><img src="images/icon.jpg"></a>
-								<div class="content">
-									<h3><a href="">Yuki宝oO</a> @ <a href="">丸龟制面(徐汇星游城店)</a><span>16-04-09</span></h3>
-									<div class="comment">
-										<span class="star-mark star3"></span>
-										<dl>
-											<dt>口味:</dt>
-											<dd>3</dd>
-											<dt>环境:</dt>
-											<dd>3</dd>
-											<dt>服务:</dt>
-											<dd>3</dd>
-										</dl>
-									</div>
-									<p>真的不错啊！</p>
-								</div>
-							</li>
-							<li class="floor clearfix">
-								<a href=""><img src="images/icon.jpg"></a>
-								<div class="content">
-									<h3><a href="">Yuki宝oO</a> @ <a href="">丸龟制面(徐汇星游城店)</a><span>16-04-09</span></h3>
-									<div class="comment">
-										<span class="star-mark star3"></span>
-										<dl>
-											<dt>口味:</dt>
-											<dd>3</dd>
-											<dt>环境:</dt>
-											<dd>3</dd>
-											<dt>服务:</dt>
-											<dd>3</dd>
-										</dl>
-									</div>
-									<p>真的不错啊！</p>
+									<p>{{item.content}}</p>
 								</div>
 							</li>
 						</ul>

@@ -172,3 +172,7 @@
 	float: right;
 	margin-right: 20px;
 }
+.container .comment-list >ul >li .floor-content .floor-bottom span a {
+	color: #999;
+	font-size: 12px;
+}
