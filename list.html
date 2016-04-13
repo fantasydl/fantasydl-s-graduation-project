@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" ng-app="indexApp">
 <head>
 	<meta charset="UTF-8">
 	<title>带你飞上海网-列表</title>
@@ -10,11 +10,16 @@
 </head>
 <body>
 	<header>
-		<div class="login-part">
-			<ul>
-				<li><a href="">服务中心</a></li>
-				<li><a href="">登录</a></li>
-				<li><a href="">注册</a></li>
+		<div class="login-part" ng-controller="doLogin">
+			<ul ng-hide="isLogined">
+				<li><a href="javascript:;" ng-click="">服务中心</a></li>
+				<li><a href="javascript:;" ng-click="login()">登录</a></li>
+				<li><a href="javascript:;" ng-click="register()">注册</a></li>
+			</ul>
+			<ul ng-show="isLogined">
+				<li><a href="javascript:;" ng-click="exit()">退出</a></li>
+				<li><a href="javascript:;" ng-click="">服务中心</a></li>
+				<li><a href="javascript:;">Welcome! {{userName}}</a></li>
 			</ul>
 		</div>
 		<div class="search-part">
@@ -266,6 +271,9 @@
 	<footer>
 		<div>@fantasydl-s-granduation-project</div>
 	</footer>
-	<script type="text/javascript" src="script/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+	<script type="text/javascript" src="http://cdn.bootcss.com/angular-ui-router/0.2.18/angular-ui-router.js"></script>
+	<script type="text/javascript" src="script/app.js"></script>
+	<script type="text/javascript" src="script/login.js"></script>
 </body>
 </html>
