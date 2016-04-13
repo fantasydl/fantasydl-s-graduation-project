@@ -7,23 +7,13 @@ indexApp.controller('doLogin',function($scope,$http){
 		angular.element(loginModal).css('display','block');
 	};
 	$scope.login = function () {
-		var userName = document.getElementById('username').value;
-		var userPsw = document.getElementById('userpsw').value;
-		var url = '../core/login.php';
-		url = url + '?username=' + userName;
-		url = url + '&userpsw=' + userPsw;
-		$http.get(url).success(function(result){
-			console.log(result);
-			if(result.match('failed')){
-				alert('登录失败');
-			}else{
-				var loginModal = document.getElementById('loginModal');
-				angular.element(loginModal).css('display','none');
-				window.sessionStorage.curUser = userName;
-				$scope.userName = userName;
-				window.sessionStorage.isLogined = true;
-				$scope.isLogined = true;
-			}
+		$http.get('login.json').success(function(result){
+			var loginModal = document.getElementById('loginModal');
+			angular.element(loginModal).css('display','none');
+			window.sessionStorage.curUser = result.nickname;
+			$scope.userName = result.nickname;
+			window.sessionStorage.isLogined = true;
+			$scope.isLogined = true;
 		});
 	};
 	$scope.register = function () {
