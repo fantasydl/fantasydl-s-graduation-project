@@ -243,13 +243,13 @@
 					</article>
 				</section>
 				<section class="new-comment">
-					<h2>最新点评<a href="">更多</a></h2>
+					<h2>最新点评</h2>
 					<article ng-controller="getComment">
 						<ul>
 							<li class="floor clearfix" ng-repeat="item in list">
 								<a href=""><img src="images/icon.jpg"></a>
 								<div class="content">
-									<h3><a href="">{{item.username}}</a> @ <a href="">{{item.shopname}}</a><span>{{item.date}}</span></h3>
+									<h3><a href="">{{item.username}}</a> @ <a href="detail.html">{{item.shopname}}</a><span>{{item.date}}</span></h3>
 									<div class="comment">
 										<span class="star-mark star{{item.score}}"></span>
 										<dl>
