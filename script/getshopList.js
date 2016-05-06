@@ -1,6 +1,20 @@
 indexApp.controller('getshopList',function($scope,$http){
+	var thisUrl = decodeURI(window.location.href);
+	var types = [],tempArr;
+	var argUrl = thisUrl.slice(thisUrl.indexOf('?')+1).split('&');
+	for(var i = 0,l = argUrl.length;i < l;i++){
+		tempArr = argUrl[i].split('='); 
+		types[tempArr[0]] = tempArr[1]; 
+	}
+	
 	var url = '../core/getshopList.php';
-	url = url + "?category=美食";
+	url = url + "?category=" + types['type1'];
+	$scope.levelOne = types['type1'];
+	if(argUrl.length > 1){
+		url = url + "&special=" + types['type2'];
+		$scope.levelTwo = types['type2'];
+	}
+
 	$http.get(url).success(function(result){
 		if(result == 'failed'){
 			$scope.list = [];

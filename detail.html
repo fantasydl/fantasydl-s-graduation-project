@@ -11,7 +11,7 @@
 	<script type="text/javascript" src="http://cdn.bootcss.com/angular-ui-router/0.2.18/angular-ui-router.js"></script>
 	<script type="text/javascript" src="script/app.js"></script>
 	<script type="text/javascript" src="script/login.js"></script>
-	<script type="text/javascript" src="script/getComment.js"></script>
+	<script type="text/javascript" src="script/getDetail.js"></script>
 </head>
 <body>
 	<header ng-controller="doLogin">
@@ -80,28 +80,28 @@
 			</div>
 		</div>
 	</header>
-	<div class="container">
+	<div class="container" ng-controller="getDetail">
 		<header>
-			<h1>豫园</h1>
+			<h1 ng-bind="detail.shopname"></h1>
 			<div class="comment clearfix">
-				<span class="star-mark-m star4-m"></span>
-				<span>300条评论</span>
+				<span class="star-mark-m star{{detail.score}}-m"></span>
+				<span>{{detail.commentsum}}条评论</span>
 				<dl>
 					<dt>人均:</dt>
-					<dd>50元</dd>
+					<dd>{{detail.avg_cost}}元</dd>
 					<dt>内容:</dt>
-					<dd>7.2</dd>
+					<dd>{{detail.avg_score1}}</dd>
 					<dt>环境:</dt>
-					<dd>6.7</dd>
+					<dd>{{detail.avg_score2}}</dd>
 					<dt>划算:</dt>
-					<dd>8.1</dd>
+					<dd>{{detail.avg_score3}}</dd>
 				</dl>
 			</div>
-			<div class="address">地址: </div>
-			<div class="phone">电话: </div>
+			<div class="address">地址: {{detail.address}}</div>
+			<div class="phone">电话: {{detail.phone}}</div>
 			<div class="more">
 				<a href="javascript:;">更多信息<i class="fa fa-chevron-down"></i></a>
-				<div>营业时间: </div>
+				<div>营业时间: {{detail.starttime}} -- {{detail.endtime}}</div>
 				<div>商户介绍: </div>
 			</div>
 			<button class="btn"><i class="fa fa-pencil-square-o"></i> 写点评</button>
@@ -148,27 +148,25 @@
 		<section class="comment-list">
 			<h2>点评</h2>
 			<ul>
-				<li>
+				<li ng-repeat="item in clist">
 					<img src="images/icon.jpg">
 					<div class="floor-content">
-						<h3><a href="">Yuki宝oO</a></h3>
+						<h3><a href="">{{item.username}}</a></h3>
 						<div class="floor-comment">
-							<span class="star-mark star4"></span>
+							<span class="star-mark star{{item.score}}"></span>
 							<dl>
 								<dt>人均:</dt>
-								<dd>50元</dd>
+								<dd>{{item.percost}}元</dd>
 								<dt>内容:</dt>
-								<dd>8</dd>
+								<dd>{{item.score1}}</dd>
 								<dt>环境:</dt>
-								<dd>7</dd>
+								<dd>{{item.score2}}</dd>
 								<dt>划算:</dt>
-								<dd>7.5</dd>
+								<dd>{{item.score3}}</dd>
 							</dl>
 						</div>
 						<p>
-							豫园园内有穗堂、铁狮子、快楼、得月楼、玉玲珑、积玉水廊、听涛阁、涵碧楼、内园静观大厅、古戏台等亭台楼阁以及假山、池塘等四十余处古代建筑。三穗堂位于豫园正门处，清乾隆二十五年建。原为乐寿堂，清初曾被征为上海县衙办公之地，改建西园时重筑为三穗堂。
-							仰山堂、卷雨楼位于三穗堂之后，与大假山隔池相望。清同治五年（1866年）建，底层称仰山堂，上层为卷雨楼，仰山堂共 5楹，后有回廊、曲槛临池、可小憩。望大假山景，池中倒影可鉴。
-							萃秀堂位于大假山东北峭壁下，清乾隆二十五年 （1760年）始建，乾隆三十五年竣工。
+							{{item.content}}
 　　					</p>
 						<div class="detail-pics clearfix">
 							<ul>
@@ -180,8 +178,8 @@
 							</ul>
 						</div>
 						<div class="floor-bottom clearfix">
-							<span>时间: 2016-04-10</span>
-							<span><a href="">赞(11)</a></span>
+							<span>时间: {{item.date}}</span>
+							<span><a href="">赞({{item.praise}})</a></span>
 						</div>
 					</div>
 				</li>

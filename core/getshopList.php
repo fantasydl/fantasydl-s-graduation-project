@@ -16,7 +16,6 @@ if(empty($category)){
 
 $row = fetchAll($sql);
 
-// var_dump($row);
 
 for($x = 0;$x < count($row);$x++){
 	$shopid = $row[$x]['shopid'];
