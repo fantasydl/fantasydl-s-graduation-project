@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="indexApp">
+<head>
+	<meta charset="UTF-8">
+	<title>带你飞上海网-游记</title>
+	<link rel="stylesheet" type="text/css" href="style/reset.css">
+	<link rel="stylesheet" type="text/css" href="style/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="style/common.css">
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script type="text/javascript" src="script/app.js"></script>
+	<script type="text/javascript" src="script/login.js"></script>
+</head>
+<body>
+	<header ng-controller="doLogin">
+		<div class="login-part">
+			<ul ng-hide="isLogined">
+				<li><a href="javascript:;" ng-click="">个人中心</a></li>
+				<li><a href="javascript:;" ng-click="showLogin()">登录</a></li>
+				<li><a href="javascript:;" ng-click="showRegister()">注册</a></li>
+			</ul>
+			<ul ng-show="isLogined">
+				<li><a href="javascript:;" ng-click="exit()">退出</a></li>
+				<li><a href="info.html?userid={{userid}}" ng-click="">个人中心</a></li>
+				<li><a href="javascript:;">Welcome! {{userName}}</a></li>
+			</ul>
+		</div>
+		<div class="search-part">
+			<div class="logo"><a href="#"><img src="images/logo.jpg"></a></div>
+			<div class="search">
+				<div class="search-bar">
+					<input type="text" class="" placeholder="搜索关键字">
+					<i class="search-btn fa fa-search"></i>
+				</div>
+			</div>
+		</div>
+		<nav class="nav-part">
+			<ul>
+				<li><a href="javascript:;" class="main">全部分类</a></li>
+				<li><a href="index.html" class="tab on">首页</a></li>
+				<li><a href="" class="tab">推荐</a></li>
+				<li><a href="" class="tab">游记</a></li>
+				<li><a href="" class="tab">论坛</a></li>
+			</ul>
+		</nav>
+		<div class="login-modal" id="loginModal" style="display: none;">
+			<h2>登录</h2>
+			<ul class="input-groups">
+				<li>
+					<label>用户名</label>
+					<input type="text" id="username" placeholder="请输入用户名">
+				</li>
+				<li>
+					<label>密码</label>
+					<input type="password" id="userpsw" placeholder="请输入密码">
+				</li>
+			</ul>
+			<div class="btn-groups">
+				<button class="btn" ng-click="login()">登录</button>
+				<button class="btn" ng-click="close1()">取消</button>
+			</div>
+		</div>
+		<div class="login-modal" id="registerModal" style="display: none;">
+			<h2>快速注册</h2>
+			<ul class="input-groups">
+				<li>
+					<label>用户名</label>
+					<input type="text" id="registername" placeholder="请输入用户名">
+				</li>
+				<li>
+					<label>密码</label>
+					<input type="password" id="registerpsw" placeholder="请输入密码">
+				</li>
+			</ul>
+			<div class="btn-groups">
+				<button class="btn" ng-click="register()">注册</button>
+				<button class="btn" ng-click="close2()">取消</button>
+			</div>
+		</div>
+	</header>
+	
+	<footer>
+		<div>@fantasydl-s-granduation-project</div>
+	</footer>
+</html>

@@ -1,6 +1,7 @@
 .container {
 	width: 900px;
 	min-height: 580px; 
+	margin: 0 auto;
 }
 
 .container dl dt,
