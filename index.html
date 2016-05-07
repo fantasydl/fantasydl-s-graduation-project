@@ -17,13 +17,13 @@
 	<header ng-controller="doLogin">
 		<div class="login-part">
 			<ul ng-hide="isLogined">
-				<li><a href="javascript:;" ng-click="">服务中心</a></li>
+				<li><a href="javascript:;" ng-click="">个人中心</a></li>
 				<li><a href="javascript:;" ng-click="showLogin()">登录</a></li>
 				<li><a href="javascript:;" ng-click="showRegister()">注册</a></li>
 			</ul>
 			<ul ng-show="isLogined">
 				<li><a href="javascript:;" ng-click="exit()">退出</a></li>
-				<li><a href="javascript:;" ng-click="">服务中心</a></li>
+				<li><a href="info.html?userid={{userid}}" ng-click="">个人中心</a></li>
 				<li><a href="javascript:;">Welcome! {{userName}}</a></li>
 			</ul>
 		</div>
@@ -39,7 +39,7 @@
 		<nav class="nav-part">
 			<ul>
 				<li><a href="javascript:;" class="main">全部分类</a></li>
-				<li><a href="" class="tab on">首页</a></li>
+				<li><a href="javascript:;" class="tab on">首页</a></li>
 				<li><a href="" class="tab">推荐</a></li>
 				<li><a href="writeTravel.html" class="tab">游记</a></li>
 				<li><a href="" class="tab">论坛</a></li>

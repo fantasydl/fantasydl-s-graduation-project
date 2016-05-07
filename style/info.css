@@ -1,0 +1,9 @@
+.container {
+	width: 900px;
+	min-height: 580px; 
+}
+
+.container dl dt,
+.container dl dd {
+	
+}

@@ -9,7 +9,7 @@ $sql = "select * from users where username = '${username}' and userpsw = '${user
 $row = fetchOne($sql);
 
 if($row){
-	echo $row['username'];
+	echo json_encode($row);
 }else{
 	echo "failed";
 }

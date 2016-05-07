@@ -22,8 +22,9 @@ indexApp.controller('doLogin',function($scope,$http){
 			}else{
 				var loginModal = document.getElementById('loginModal');
 				angular.element(loginModal).css('display','none');
-				window.sessionStorage.curUser = result;
-				$scope.userName = result;
+				window.sessionStorage.curUser = result.username;
+				$scope.userName = result.username;
+				$scope.userid = result.userid;
 				window.sessionStorage.isLogined = true;
 				$scope.isLogined = true;
 			}

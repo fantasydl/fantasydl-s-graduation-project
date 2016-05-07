@@ -1,9 +1,9 @@
 <?php
 require_once '../include.php';
 
-$username = $_GET["username"];
+$username = $_GET["userid"];
 
-$sql = "select * from users where username = '${username}'";
+$sql = "select * from users where userid = '${userid}'";
 
 $row = fetchOne($sql);
 
