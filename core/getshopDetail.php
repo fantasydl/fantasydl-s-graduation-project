@@ -44,4 +44,3 @@ if($shopid == 0 || empty($shopid)){
 	}
 }
 
-?>

@@ -42,7 +42,6 @@ function update($table,$array,$where=null){
 	}
 		$sql="update {$table} set {$str} ".($where==null?null:" where ".$where);
 		$result=mysql_query($sql);
-		//var_dump($result);
 		//var_dump(mysql_affected_rows());exit;
 		if($result){
 			return mysql_affected_rows();

@@ -11,6 +11,9 @@
 	margin: 10px 0 5px 0;
 	font-size: 17px;
 }
+.container dl dd {
+	margin-top: 2px;
+}
 .container dl dd input {
 	width: 75%;
 }
@@ -38,4 +41,16 @@
 .container .btn {
 	width: 100px;
 	height: 30px;
+}
+.container dd .btn {
+	width: 65px;
+	height: 25px;
+}
+
+.container .image-upload img {
+	width: 60px;
+	height: 60px;
+}
+.container .image-upload input {
+	width: 75px;
 }

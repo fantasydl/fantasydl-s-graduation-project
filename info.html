@@ -24,7 +24,7 @@
 			<ul ng-show="isLogined">
 				<li><a href="index.html" ng-click="exit()">退出</a></li>
 				<li><a href="javascript:;">个人中心</a></li>
-				<li><a href="javascript:;">Welcome! {{userName}}</a></li>
+				<li><a href="javascript:;">Welcome! {{nickName}}</a></li>
 			</ul>
 		</div>
 		<div class="search-part">
@@ -81,14 +81,18 @@
 		</div>
 	</header>
 	<section class="container" ng-controller="getUserInfo">
+		<form id="updateData">
 		<dl>
 			<dt>昵称：</dt>
 			<dd><input type="text" name="nickname" id="nickname"></dd>
 			<dt>头像：</dt>
-			<dd>
-				<img src="" alt="头像">
-				<input type="file" name="headicon">
+			<dd class="image-upload">
+				<img src="{{userInfo.icon}}" alt="头像">
+				<form id="iconData" enctype="multipart/form-data">
+					<input type="file" name="icon" id="icon" accept="image/*">
+				</form>
 			</dd>
+			<dd><button class="btn" ng-click="uploadIcon()">上传头像</button></dd>
 			<dt>性别：</dt>
 			<dd>
 				<label for="gender"><input type="radio" name="gender" value="male">男</label>
@@ -104,16 +108,17 @@
 			<dd>
 				<div class="psw">
 					<label for="oldpsw">原密码</label>
-					<input type="password" name="oldpsw" id="oldpsw" ng-model="oldpsw" ng-change="checkOldPsw(oldpsw)">
+					<input type="password" id="oldpsw" ng-model="oldpsw" ng-change="checkOldPsw(oldpsw)">
 					<span></span>
 				</div>
 				<div class="psw">
 					<label for="newpsw">新密码</label>
-					<input type="password" name="newpsw" id="newpsw">
+					<input type="password" name="userpsw" id="newpsw">
 				</div>
 			</dd>
 			<button class="btn" ng-click="save()">保存修改</button>
 		</dl>
+		</form>
 	</section>
 	<footer>
 		<div>@fantasydl-s-granduation-project</div>

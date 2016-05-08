@@ -16,5 +16,3 @@ if($row){
 }else{
 	echo "failed";
 }
-
-?>

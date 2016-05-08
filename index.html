@@ -24,7 +24,7 @@
 			<ul ng-show="isLogined">
 				<li><a href="javascript:;" ng-click="exit()">退出</a></li>
 				<li><a href="javascript:;" ng-click="InfoCenter()">个人中心</a></li>
-				<li><a href="javascript:;">Welcome! {{userName}}</a></li>
+				<li><a href="javascript:;">Welcome! {{nickName}}</a></li>
 			</ul>
 		</div>
 		<div class="search-part">
@@ -247,9 +247,9 @@
 					<article ng-controller="getComment">
 						<ul>
 							<li class="floor clearfix" ng-repeat="item in list">
-								<a href=""><img src="images/icon.jpg"></a>
+								<a href="javascript:;"><img src="{{item.icon}}"></a>
 								<div class="content">
-									<h3><a href="">{{item.username}}</a> @ <a href="detail.html?shopid={{item.shopid}}">{{item.shopname}}</a><span>{{item.date}}</span></h3>
+									<h3><a href="">{{item.nickname}}</a> @ <a href="detail.html?shopid={{item.shopid}}">{{item.shopname}}</a><span>{{item.date}}</span></h3>
 									<div class="comment">
 										<span class="star-mark star{{item.score}}"></span>
 										<dl>

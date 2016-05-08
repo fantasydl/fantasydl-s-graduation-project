@@ -28,9 +28,9 @@ function buildInfo(){
 	}
 	return $files;
 }
-function uploadFile($path="uploads",$allowExt=array("gif","jpeg","png","jpg","wbmp"),$maxSize=2097152,$imgFlag=true){
+function uploadFile($path="C:/wamp/www/uploads",$allowExt=array("gif","jpeg","png","jpg","wbmp"),$maxSize=2097152,$imgFlag=true){
 	if(!file_exists($path)){
-		mkdir($path,0777,true);
+		mkdir($path,0755,true);
 	}
 	$i=0;
 	$files=buildInfo();
@@ -54,9 +54,6 @@ function uploadFile($path="uploads",$allowExt=array("gif","jpeg","png","jpg","wb
 			if($file['size']>$maxSize){
 				exit("上传文件过大");
 			}
-			if(!is_uploaded_file($file['tmp_name'])){
-				exit("不是通过HTTP POST方式上传上来的");
-			}
 			$filename=getUniName().".".$ext;
 			$destination=$path."/".$filename;
 			if(move_uploaded_file($file['tmp_name'], $destination)){
@@ -77,7 +74,7 @@ function uploadFile($path="uploads",$allowExt=array("gif","jpeg","png","jpg","wb
 						$mes="文件部分被上传";//UPLOAD_ERR_PARTIAL
 						break;
 					case 4:
-						$mes="没有文件被上传1111";//UPLOAD_ERR_NO_FILE
+						$mes="没有文件被上传";//UPLOAD_ERR_NO_FILE
 						break;
 					case 6:
 						$mes="没有找到临时目录";//UPLOAD_ERR_NO_TMP_DIR

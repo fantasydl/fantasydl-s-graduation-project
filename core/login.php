@@ -14,4 +14,3 @@ if($row){
 	echo "failed";
 }
 
-?>

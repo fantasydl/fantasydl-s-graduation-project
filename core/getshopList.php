@@ -59,4 +59,3 @@ if($row){
 	echo "failed";
 }
 
-?>

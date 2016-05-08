@@ -146,6 +146,8 @@
 	position: absolute;
 	top: 0;
 	left: 0;
+	width: 48px;
+	height: 48px;
 }
 .container .main .center .new-comment .floor .content { 
 	margin-left: 55px;
@@ -211,7 +213,7 @@
 	position: absolute;
 	top: 0;
 	left: 10px;
-	width: 50px;
+	width: 48px;
 	height: 48px;
 }
 .container .main .right section ul li a .resume {
