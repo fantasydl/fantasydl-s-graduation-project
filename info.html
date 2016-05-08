@@ -17,13 +17,13 @@
 	<header ng-controller="doLogin">
 		<div class="login-part">
 			<ul ng-hide="isLogined">
-				<li><a href="javascript:;" ng-click="">个人中心</a></li>
+				<li><a href="javascript:;">个人中心</a></li>
 				<li><a href="javascript:;" ng-click="showLogin()">登录</a></li>
 				<li><a href="javascript:;" ng-click="showRegister()">注册</a></li>
 			</ul>
 			<ul ng-show="isLogined">
-				<li><a href="javascript:;" ng-click="exit()">退出</a></li>
-				<li><a href="info.html?userid={{userid}}" ng-click="">个人中心</a></li>
+				<li><a href="index.html" ng-click="exit()">退出</a></li>
+				<li><a href="javascript:;">个人中心</a></li>
 				<li><a href="javascript:;">Welcome! {{userName}}</a></li>
 			</ul>
 		</div>
@@ -83,7 +83,7 @@
 	<section class="container" ng-controller="getUserInfo">
 		<dl>
 			<dt>昵称：</dt>
-			<dd><input type="text" name="nickname"></dd>
+			<dd><input type="text" name="nickname" id="nickname"></dd>
 			<dt>头像：</dt>
 			<dd>
 				<img src="" alt="头像">
@@ -91,23 +91,28 @@
 			</dd>
 			<dt>性别：</dt>
 			<dd>
-				<label for="gender"><input type="radio" name="gender">男</label>
-				<label for="gender"><input type="radio" name="gender">女</label>
+				<label for="gender"><input type="radio" name="gender" value="male">男</label>
+				<label for="gender"><input type="radio" name="gender" value="female">女</label>
 			</dd>
 			<dt>邮箱：</dt>
-			<dd><input type="email" name="email"></dd>
+			<dd><input type="email" name="email" id="email"></dd>
 			<dt>个人介绍：</dt>
 			<dd>
-				<textarea name="introduce" cols="30" rows="5"></textarea>
+				<textarea name="introduce" id="introduce"></textarea>
 			</dd>
 			<dt>修改密码：</dt>
 			<dd>
-				<label for="oldpsw">原密码</label>
-				<input type="password" name="oldpsw">
-				<label for="newpsw">新密码</label>
-				<input type="password" name="newpsw">
+				<div class="psw">
+					<label for="oldpsw">原密码</label>
+					<input type="password" name="oldpsw" id="oldpsw" ng-model="oldpsw" ng-change="checkOldPsw(oldpsw)">
+					<span></span>
+				</div>
+				<div class="psw">
+					<label for="newpsw">新密码</label>
+					<input type="password" name="newpsw" id="newpsw">
+				</div>
 			</dd>
-			<button class="button">保存修改</button>
+			<button class="btn" ng-click="save()">保存修改</button>
 		</dl>
 	</section>
 	<footer>

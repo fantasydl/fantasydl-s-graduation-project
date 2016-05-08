@@ -16,6 +16,34 @@ indexApp.controller('getUserInfo',function($scope,$http){
 		}else{
 			console.log(result);
 			$scope.userInfo = result;
+			$('#nickname').val(result.username);
+			if(result.gender == 'male'){
+				$('input[name=gender]').each(function(){
+					if($(this).val() == 'male'){
+						$(this).prop('checked',true);
+					}
+				})
+			} else if (result.gender == 'female'){
+				$('input[name=gender]').each(function(){
+					if($(this).val() == 'female'){
+						$(this).prop('checked',true);
+					}
+				})
+			}
+			$('#email').val(result.email);
+			$('#introduce').val(result.introduce);
 		}
-	})
-})
+	});
+
+	$scope.checkOldPsw = function (str) {
+		if(str!=$scope.userInfo.userpsw && str.length >= $scope.userInfo.userpsw.length){
+			$('.psw span').text('*密码错误');
+		}else{
+			$('.psw span').text('');
+		}
+	};
+
+	$scope.save = function () {
+
+	};
+});

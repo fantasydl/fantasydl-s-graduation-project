@@ -1,7 +1,7 @@
 <?php
 require_once '../include.php';
 
-$username = $_GET["userid"];
+$userid = $_GET["userid"];
 
 $sql = "select * from users where userid = '${userid}'";
 

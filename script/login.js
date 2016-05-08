@@ -3,6 +3,7 @@ indexApp.controller('doLogin',function($scope,$http){
 
 	$scope.isLogined = window.sessionStorage.isLogined == 'true' ? true : false;
 	$scope.userName = window.sessionStorage.curUser == 'undefined' ? undefined :  window.sessionStorage.curUser;
+	$scope.userId = window.sessionStorage.curUserId == 'undefined' ? undefined :  window.sessionStorage.curUserId;
 	
 	$scope.showLogin = function () {
 		var loginModal = document.getElementById('loginModal');
@@ -17,14 +18,15 @@ indexApp.controller('doLogin',function($scope,$http){
 		url = url + '&userpsw=' + userPsw;
 		$http.get(url).success(function(result){
 			console.log(result);
-			if(result.match('failed')){
+			if(result === 'failed'){
 				alert('登录失败');
 			}else{
 				var loginModal = document.getElementById('loginModal');
 				angular.element(loginModal).css('display','none');
 				window.sessionStorage.curUser = result.username;
 				$scope.userName = result.username;
-				$scope.userid = result.userid;
+				window.sessionStorage.curUserId = result.userid;
+				$scope.userId = result.userid;
 				window.sessionStorage.isLogined = true;
 				$scope.isLogined = true;
 			}
@@ -70,4 +72,13 @@ indexApp.controller('doLogin',function($scope,$http){
 		var registerModal = document.getElementById('registerModal');
 		angular.element(registerModal).css('display','none');
 	};
+
+	$scope.InfoCenter = function () {
+		if($scope.isLogined){
+			var toUrl = 'info.html?userid=' + $scope.userId;
+			window.open(toUrl);
+		} else {
+			alert('请先登录！');
+		}
+	}
 });

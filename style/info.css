@@ -1,10 +1,41 @@
 .container {
-	width: 900px;
-	min-height: 580px; 
-	margin: 0 auto;
+	width: 400px;
+	min-height: 420px; 
+	margin: 10px auto;
+}
+.container dl {
+	width: 100%;
+}
+.container dl dt {
+	width: 100%;
+	margin: 10px 0 5px 0;
+	font-size: 17px;
+}
+.container dl dd input {
+	width: 75%;
+}
+.container dl dd input[name='gender'] {
+	width: 5%;
+}
+.container dl dd textarea {
+	width: 75%;
+	min-width: 75%;
+	max-width: 75%;
+	height: 88px;
+	min-height: 88px;
+	max-height: 88px
+}
+.container dl dd .psw {
+	margin: 5px 0;
+}
+.container dl dd .psw input {
+	width: 63%;
+}
+.container dl dd .psw span {
+	color: red;
 }
 
-.container dl dt,
-.container dl dd {
-	
+.container .btn {
+	width: 100px;
+	height: 30px;
 }
