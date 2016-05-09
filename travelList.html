@@ -31,8 +31,23 @@
 			<div class="logo"><a href="#"><img src="images/logo.jpg"></a></div>
 			<div class="search">
 				<div class="search-bar">
-					<input type="text" class="" placeholder="搜索关键字">
+					<input type="text" id="searchInput" placeholder="搜索关键字" ng-model="keys" ng-change="search(keys)">
 					<i class="search-btn fa fa-search"></i>
+					<div class="search-result" id="searchResult">
+						<ul>
+							<li ng-repeat="item in srlist">
+								<a href="detail.html?shopid={{item.shopid}}" class="clearfix" ng-show="item.isshop">
+									{{item.shopname}}
+									<span>{{item.special}}</span>
+									<span>{{item.category}}</span>
+								</a>
+								<a href="travelDetail.html?travelid={{item.travelid}}" class="clearfix" ng-hide="item.isshop">
+									{{item.title}}
+									<span>游记</span>
+								</a>
+							</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -102,7 +117,7 @@
 						{{item.content}}
 					</div>
 					<div class="bottom clearfix">
-						<div><i class="fa fa-commenting" aria-hidden="true"></i> {{item.praise}}</div>
+						<div><i class="fa fa-commenting" aria-hidden="true"></i> {{item.comments}}</div>
 						<div><i class="fa fa-thumbs-up" aria-hidden="true"></i> {{item.praise}}</div>
 					</div>
 				</section>

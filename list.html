@@ -31,8 +31,23 @@
 			<div class="logo"><a href="#"><img src="images/logo.jpg"></a></div>
 			<div class="search">
 				<div class="search-bar">
-					<input type="text" class="" placeholder="搜索关键字">
+					<input type="text" id="searchInput" placeholder="搜索关键字" ng-model="keys" ng-change="search(keys)">
 					<i class="search-btn fa fa-search"></i>
+					<div class="search-result" id="searchResult">
+						<ul>
+							<li ng-repeat="item in srlist">
+								<a href="detail.html?shopid={{item.shopid}}" class="clearfix" ng-show="item.isshop">
+									{{item.shopname}}
+									<span>{{item.special}}</span>
+									<span>{{item.category}}</span>
+								</a>
+								<a href="travelDetail.html?travelid={{item.travelid}}" class="clearfix" ng-hide="item.isshop">
+									{{item.title}}
+									<span>游记</span>
+								</a>
+							</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -202,11 +217,11 @@
 							<span class="bor-rgt">{{item.commentsum}}条 点评</span>
 							<span>人均 ￥{{item.avg_cost}}</span>
 							<dl>
-								<dt>内容</dt>
+								<dt>位置</dt>
 								<dd>{{item.avg_score1}}</dd>
 								<dt>环境</dt>
 								<dd>{{item.avg_score2}}</dd>
-								<dt>划算</dt>
+								<dt>性价比</dt>
 								<dd>{{item.avg_score3}}</dd>
 							</dl>
 						</div>

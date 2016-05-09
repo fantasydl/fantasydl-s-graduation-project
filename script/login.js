@@ -86,5 +86,25 @@ indexApp.controller('doLogin',function($scope,$http){
 		} else {
 			alert('请先登录！');
 		}
-	}
+	};
+
+	$scope.search = function (keywords) {
+		// var keywords = $('#searchInput').val();
+		$scope.srlist = [];
+		if(!keywords){
+			$('#searchResult').hide();
+			return;
+		}
+		var url = '../core/search.php';
+		url = url + '?keywords=' + keywords;
+		$http.get(url).success(function(result){
+			console.log(result);
+			if(result){
+				$scope.srlist = result;
+				$('#searchResult').show();
+			}else{
+				$('#searchResult').hide();
+			}
+		})
+	};
 });

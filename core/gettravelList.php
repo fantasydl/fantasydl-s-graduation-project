@@ -24,6 +24,11 @@ for($x = 0;$x < count($row);$x++){
 	$row[$x]['newcommentuserid'] = $rowrowrow['userid'];
 	$row[$x]['newcommentusercontent'] = $rowrowrow['content'];
 
+	$sql = "select * from tcomments where travelid = '${travelid}'";
+
+	$rowandrow = fetchAll($sql);
+	$row[$x]['comments'] = count($rowandrow);
+
 	$sql = "select * from users where userid = '${userid}'";
 
 	$rowrowrowrow = fetchOne($sql);

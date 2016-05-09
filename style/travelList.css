@@ -18,6 +18,7 @@
 }
 
 .flex-container {
+	margin-top: 10px;
 	-webkit-column-width: 280px;
 	-moz-column-width: 280px;
 	-ms-column-width: 280px;
