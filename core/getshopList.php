@@ -12,10 +12,7 @@ if(empty($category)){
 	$sql = "select * from shops where category = '${category}' and special = '${special}'";
 }
 
-
-
 $row = fetchAll($sql);
-
 
 for($x = 0;$x < count($row);$x++){
 	$shopid = $row[$x]['shopid'];

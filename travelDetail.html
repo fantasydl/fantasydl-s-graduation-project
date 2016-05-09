@@ -6,6 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="style/reset.css">
 	<link rel="stylesheet" type="text/css" href="style/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="style/common.css">
+	<link rel="stylesheet" type="text/css" href="style/travelDetail.css">
 	<script type="text/javascript" src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
 	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script type="text/javascript" src="script/app.js"></script>
@@ -79,15 +80,46 @@
 			</div>
 		</div>
 	</header>
-	<div ng-controller="travel">
-		<article>
+	<div class="container" ng-controller="travel">
+		<article class="clearfix">
 			<h1>{{title}}</h1>
 			<div id="content">
 				
 			</div>
+			<aside>
+				<h2>{{authorname}}</h2>
+				<img src="{{authoricon}}">
+				<p>作者介绍:</p>
+				<p>{{authorinfo}}</p>
+				<div ng-show="isAuthor" id="editTravel">
+					<a href="writeTravel.html?travelid={{travelid}}" class="btn"><i class="fa fa-pencil-square-o"></i> 编辑游记</a>
+				</div>
+				<div>
+					<a href="" class="btn"><i class="fa fa-pencil-square-o"></i> 写点评</a>
+				</div>
+			</aside>
 		</article>
-		<aside></aside>
+		<div class="comment-list">
+			<h2>评论</h2>
+			<ul>
+				<li ng-repeat="item in clist">
+					<img src="{{item.usericon}}">
+					<div class="floor-content">
+						<h3><a href="">{{item.username}}</a></h3>
+						<div class="floor-comment">
+							<p>
+								{{item.content}}
+　　						</p>
+						</div>
+						<div class="floor-bottom clearfix">
+							<span>时间: {{item.date}}</span>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
 	</div>
+
 	<footer>
 		<div>@fantasydl-s-granduation-project</div>
 	</footer>

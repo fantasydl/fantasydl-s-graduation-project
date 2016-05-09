@@ -5,8 +5,18 @@ $str = file_get_contents("php://input");
 
 $arr = json_decode($str, true);
 
-if(insert("travels", $arr)){
-	echo "success";
+$travelid = $arr['travelid'];
+
+if($travelid){
+	if($row = update("travels", $arr, "travelid={$travelid}")){
+		echo json_encode($row);
+	}else{
+		echo "failed";
+	}
 }else{
-	echo "failed";
+	if(insert("travels", $arr)){
+		echo "success";
+	}else{
+		echo "failed";
+	}
 }

@@ -16,9 +16,23 @@ article input {
 	border: 2px solid #FF7200;
 	text-indent: 10px;
 }
-article .btn {
+article .cover-img {
+	width: 200px;
+	height: 200px;
+}
+article input.cover {
+	width: 81px;
+	height: auto;
+	border: none;
+}
+article .btn-1 {
 	float: right;
 	margin: 10px;
 	width: 120px;
 	height: 35px;
+}
+article .btn-2 {
+	width: 72px;
+	height: 22px;
+	border-radius: 4px;
 }

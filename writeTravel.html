@@ -88,11 +88,15 @@
 	<article class="clearfix" ng-controller="travel">
 		<h2>标题：</h2>
 		<input type="text" name="title" id="title" placeholder="请输入标题">
+        <h2>封面：</h2>
+        <img class="cover-img" src="{{cover}}" alt="封面">
+        <input type="file" name="cover" class="cover" id="cover">
+        <button class="btn btn-2" ng-click="uploadCover()">上传封面</button>
 		<div class="content">
 			<h2>内容：</h2>
 			<script id="editor" type="text/plain" style="width:900px;height:700px;"></script>
 		</div>
-		<button class="btn" ng-click="save()">保存</button>
+		<button class="btn btn-1" ng-click="save()">保存</button>
 	</article>
 	<footer>
 		<div>@fantasydl-s-granduation-project</div>

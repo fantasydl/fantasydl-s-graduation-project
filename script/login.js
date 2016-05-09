@@ -60,9 +60,11 @@ indexApp.controller('doLogin',function($scope,$http){
 
 	$scope.exit = function () {
 		window.sessionStorage.curUser = undefined;
+		window.sessionStorage.curUserId = undefined;
 		$scope.nickName = undefined;
 		window.sessionStorage.isLogined = false;
 		$scope.isLogined = false;
+		$('#editTravel').hide();
 	};
 
 	$scope.close1 = function () {

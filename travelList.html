@@ -6,10 +6,12 @@
 	<link rel="stylesheet" type="text/css" href="style/reset.css">
 	<link rel="stylesheet" type="text/css" href="style/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="style/common.css">
+	<link rel="stylesheet" type="text/css" href="style/travelList.css">
 	<script type="text/javascript" src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
 	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script type="text/javascript" src="script/app.js"></script>
 	<script type="text/javascript" src="script/login.js"></script>
+	<script type="text/javascript" src="script/getTravelList.js"></script>
 </head>
 <body>
 	<header ng-controller="doLogin">
@@ -78,8 +80,39 @@
 			</div>
 		</div>
 	</header>
-	<a href="writeTravel.html" class="btn">写游记</a>
-	<a href="travelDetail.html?travelid=1" class="btn">去详情</a>
+	<section class="container" ng-controller="getTravelList">
+		<div class="hidden-text" id="hiddenText"></div>
+		<header>
+			<img src="images/banner.jpg">
+			<a href="writeTravel.html" class="btn btn-1"><i class="fa fa-pencil-square-o"></i> 写游记</a>
+		</header>
+		<div class="flex-container">
+			<div class="travel-item" ng-repeat="item in list">
+				<header>
+					<img src="{{item.cover}}">
+					<a href="travelDetail.html?travelid={{item.travelid}}">{{item.title}}</a>
+				</header>
+				<section>
+					<div class="header">
+						<span>作者：</span>
+						<img src="{{item.authorcover}}">
+						<span>{{item.authorname}}</span>
+					</div>
+					<div class="content">
+						{{item.content}}
+					</div>
+					<div class="bottom clearfix">
+						<div><i class="fa fa-commenting" aria-hidden="true"></i> {{item.praise}}</div>
+						<div><i class="fa fa-thumbs-up" aria-hidden="true"></i> {{item.praise}}</div>
+					</div>
+				</section>
+				<footer>
+					<img src="{{item.newcommentusericon}}">
+					<p><span>{{item.newcommentusername}} </span>回复：{{item.newcommentusercontent}}</p>
+				</footer>
+			</div>
+		</div>
+	</section>
 	<footer>
 		<div>@fantasydl-s-granduation-project</div>
 	</footer>
