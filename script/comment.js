@@ -12,8 +12,8 @@ indexApp.controller('setComment',function($scope,$http){
 	data.date = getDate();
 
 	$scope.submit = function () {
-		var url = '../core/comment.php';
 		if(types['travelid']){
+			var url = '../core/tcomment.php';
 			data.travelid = parseInt(types['travelid']);	
 			$http.post(url,data).success(function(result){
 				if(result == 'success'){
@@ -23,7 +23,7 @@ indexApp.controller('setComment',function($scope,$http){
 				}
 			})
 		}else if(types['shopid']){
-			var url = '../core/tcomment.php';
+			var url = '../core/comment.php';
 			data.shopid = parseInt(types['shopid']);
 			$http.post(url,data).success(function(result){
 				if(result == 'success'){
