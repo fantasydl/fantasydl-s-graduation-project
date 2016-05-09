@@ -7,12 +7,12 @@ indexApp.controller('setComment',function($scope,$http){
 		types[tempArr[0]] = tempArr[1]; 
 	}
 
-	var url = '../core/comment.php';
 	var data = {};
 	data.userid =  parseInt(window.sessionStorage.curUserId);
 	data.date = getDate();
 
 	$scope.submit = function () {
+		var url = '../core/comment.php';
 		if(types['travelid']){
 			data.travelid = parseInt(types['travelid']);	
 			$http.post(url,data).success(function(result){
@@ -23,6 +23,7 @@ indexApp.controller('setComment',function($scope,$http){
 				}
 			})
 		}else if(types['shopid']){
+			var url = '../core/tcomment.php';
 			data.shopid = parseInt(types['shopid']);
 			$http.post(url,data).success(function(result){
 				if(result == 'success'){
