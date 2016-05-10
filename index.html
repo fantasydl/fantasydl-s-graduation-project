@@ -12,6 +12,7 @@
 	<script type="text/javascript" src="script/app.js"></script>
 	<script type="text/javascript" src="script/login.js"></script>
 	<script type="text/javascript" src="script/getComment.js"></script>
+	<script type="text/javascript" src="script/rank.js"></script>
 </head>
 <body>
 	<header ng-controller="doLogin">
@@ -283,52 +284,16 @@
 					</article>
 				</section>
 			</article>
-			<article class="right">
+			<article class="right" ng-controller="getRank">
 				<section class="rank-views">
 					<ul>
 						<h3>热门景点</h3>
-						<li>
-							<a href="">
-								<img src="images/yuyuan.jpg">
+						<li ng-repeat="item in list.view">
+							<a href="detail.html?shopid={{item.shopid}}">
+								<img src="{{item.shopcover}}">
 								<div class="resume">
-									<h4>豫园</h4>
-									<span class="star-mark star5">(1121)</span>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="">
-								<img src="images/dongfangmingzhu.jpg">
-								<div class="resume">
-									<h4>东方明珠</h4>
-									<span class="star-mark star5">(999)</span>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="">
-								<img src="images/huanlegu.jpg">
-								<div class="resume">
-									<h4>欢乐谷</h4>
-									<span class="star-mark star45">(778)</span>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="">
-								<img src="images/dongtan.jpg">
-								<div class="resume">
-									<h4>崇明东滩湿地公园</h4>
-									<span class="star-mark star45">(778)</span>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="">
-								<img src="images/nanjinglu.jpg">
-								<div class="resume">
-									<h4>南京路步行街</h4>
-									<span class="star-mark star4">(678)</span>
+									<h4>{{item.shopname}}</h4>
+									<span class="star-mark star4">({{item.comcount}})</span>
 								</div>
 							</a>
 						</li>
@@ -338,48 +303,12 @@
 				<section class="rank-restaurants">
 					<ul>
 						<h3>热门餐厅</h3>
-						<li>
-							<a href="">
-								<img src="images/yuyuan.jpg">
+						<li ng-repeat="item in list.food">
+							<a href="detail.html?shopid={{item.shopid}}">
+								<img src="{{item.shopcover}}">
 								<div class="resume">
-									<h4>豫园</h4>
-									<span class="star-mark star5">(1121)</span>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="">
-								<img src="images/dongfangmingzhu.jpg">
-								<div class="resume">
-									<h4>东方明珠</h4>
-									<span class="star-mark star5">(999)</span>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="">
-								<img src="images/huanlegu.jpg">
-								<div class="resume">
-									<h4>欢乐谷</h4>
-									<span class="star-mark star45">(778)</span>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="">
-								<img src="images/dongtan.jpg">
-								<div class="resume">
-									<h4>崇明东滩湿地公园</h4>
-									<span class="star-mark star45">(778)</span>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="">
-								<img src="images/nanjinglu.jpg">
-								<div class="resume">
-									<h4>南京路步行街</h4>
-									<span class="star-mark star4">(678)</span>
+									<h4>{{item.shopname}}</h4>
+									<span class="star-mark star4">({{item.comcount}})</span>
 								</div>
 							</a>
 						</li>
