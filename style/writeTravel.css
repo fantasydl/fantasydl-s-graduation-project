@@ -15,6 +15,7 @@ article input {
 	margin-bottom: 10px;
 	border: 2px solid #FF7200;
 	text-indent: 10px;
+	outline: none;
 }
 article .cover-img {
 	width: 200px;
