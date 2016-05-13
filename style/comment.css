@@ -1,0 +1,103 @@
+.container {
+	width: 700px;
+	min-height: 415px;
+	margin: 10px auto;
+}
+.container h2 {
+	margin-bottom: 10px;
+	font-size: 22px;
+	font-weight: bold;
+}
+.container >div >div {
+	margin-bottom: 10px;
+}
+.container span {
+	float: left;
+	display: block;
+	width: 70px;
+	height: 16px;
+	margin-right: 5px;
+	text-align: right;
+}
+
+.container input {
+	width: 75px;
+}
+.container textarea {
+	min-width: 70%;
+	max-width: 70%;
+	min-height: 100px;
+	max-height: 100px;
+}
+.container .btn0 {
+	width: 70px;
+	height: 22px;
+	border-radius: 3px;
+}
+.container .btn1 {
+	width: 80px;
+	height: 35px;
+	margin-left: 70px;
+	border-radius: 6px;
+}
+.container ul{
+	float: left;
+	margin-bottom: 15px;
+	overflow: hidden;
+}
+.container ul li{
+	float: left;
+}
+.container ul li a{
+	display: block;
+	width: 16px;
+	height: 16px;
+	text-indent: 20px;
+	overflow: hidden;
+}
+.chooseStars0,
+.chooseStars1,
+.chooseStars2,
+.chooseStars3,
+.chooseStars4,
+.chooseStars5,
+.chooseStars1_h,
+.chooseStars2_h,
+.chooseStars3_h,
+.chooseStars4_h,
+.chooseStars5_h{
+	background: url(../images/star-matrix.gif) no-repeat;
+}
+.chooseStars0{
+	background-position: 0 0;
+}
+.chooseStars1{
+	background-position: 0 -16px;
+}
+.chooseStars1_h{
+	background-position: 0 -96px;
+}
+.chooseStars2{
+	background-position: 0 -32px;
+}
+.chooseStars2_h{
+	background-position: 0 -112px;
+}
+.chooseStars3{
+	background-position: 0 -48px;
+}
+.chooseStars3_h{
+	background-position: 0 -128px;
+}
+.chooseStars4{
+	background-position: 0 -64px;
+}
+.chooseStars4_h{
+	background-position: 0 -144px;
+}
+.chooseStars5{
+	background-position: 0 -80px;
+}
+.chooseStars5_h{
+	background-position: 0 -160px;
+}

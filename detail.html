@@ -57,7 +57,7 @@
 				<li><a href="index.html" class="tab">首页</a></li>
 				<li><a href="" class="tab">推荐</a></li>
 				<li><a href="travelList.html" class="tab">游记</a></li>
-				<li><a href="" class="tab">论坛</a></li>
+				<li><a href="javascript:;" class="tab">论坛</a></li>
 			</ul>
 		</nav>
 		<div class="login-modal" id="loginModal" style="display: none;">
@@ -119,8 +119,8 @@
 				<div>营业时间: {{detail.starttime}} -- {{detail.endtime}}</div>
 				<div>商户介绍: </div>
 			</div>
-			<button class="btn"><i class="fa fa-pencil-square-o"></i> 写点评</button>
-			<img src="images/yuyuan.jpg">
+			<a href="comment.html?shopid={{detail.shopid}}" class="btn"><i class="fa fa-pencil-square-o"></i> 写点评</a>
+			<img src="{{detail.cover}}.jpg">
 		</header>
 		<section class="pic-show clearfix">
 			<nav class="clearfix">
@@ -131,33 +131,13 @@
 				</ul>
 			</nav>
 			<div class="pic-list">
-				<div><img src="" alt="图片"></div>
-				<div><img src="" alt="图片"></div>
-				<div><img src="" alt="图片"></div>
-				<div><img src="" alt="图片"></div>
-				<div><img src="" alt="图片"></div>
-				<div><img src="" alt="图片"></div>
-				<div><img src="" alt="图片"></div>
-				<div><img src="" alt="图片"></div>
-				<div><img src="" alt="图片"></div>
-				<div><img src="" alt="图片"></div>
-				<div><img src="" alt="图片"></div>
-				<div><img src="" alt="图片"></div>
+				<div ng-repeat="pic in detail.album"><img src="{{pic}}" alt="图片"></div>
 			</div>
 			<div class="pic-list" style="display: none;">
-				<div><img src="" alt="图片"></div>
-				<div><img src="" alt="图片"></div>
-				<div><img src="" alt="图片"></div>
-				<div><img src="" alt="图片"></div>
+				<div ng-repeat="pic in detail.album"><img src="{{pic}}" alt="图片"></div>
 			</div>
 			<div class="pic-list" style="display: none;">
-				<div><img src="" alt="图片"></div>
-				<div><img src="" alt="图片"></div>
-				<div><img src="" alt="图片"></div>
-				<div><img src="" alt="图片"></div>
-				<div><img src="" alt="图片"></div>
-				<div><img src="" alt="图片"></div>
-				<div><img src="" alt="图片"></div>
+				<div ng-repeat="pic in detail.album"><img src="{{pic}}" alt="图片"></div>
 			</div>
 		</section>
 		<section class="comment-list">
@@ -176,7 +156,7 @@
 								<dd>{{item.score1}}</dd>
 								<dt>环境:</dt>
 								<dd>{{item.score2}}</dd>
-								<dt>星际币:</dt>
+								<dt>性价比:</dt>
 								<dd>{{item.score3}}</dd>
 							</dl>
 						</div>
@@ -185,11 +165,7 @@
 　　					</p>
 						<div class="detail-pics clearfix">
 							<ul>
-								<li><img src="" alt="图片"></li>
-								<li><img src="" alt="图片"></li>
-								<li><img src="" alt="图片"></li>
-								<li><img src="" alt="图片"></li>
-								<li><img src="" alt="图片"></li>
+								<li ng-repeat="pic in item.albums"><img src="{{pic}}" alt="图片"></li>
 							</ul>
 						</div>
 						<div class="floor-bottom clearfix">

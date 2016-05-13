@@ -3,7 +3,7 @@ indexApp.controller('getTravelList',function($scope,$http){
 
 	$http.get(url).success(function(result){
 		if(result == 'failed'){
-			alert('获取列表失败！');
+			$scope.list = [];
 		}else{
 			for(var i = 0,l = result.length;i < l;i++){
 				$('#hiddenText').append(result[i].content);

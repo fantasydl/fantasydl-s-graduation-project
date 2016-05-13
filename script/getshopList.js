@@ -18,7 +18,7 @@ indexApp.controller('getshopList',function($scope,$http){
 	$http.get(url).success(function(result){
 		if(result == 'failed'){
 			$scope.list = [];
-			alert('获取列表失败');
+			alert('暂无该类店铺！');
 		}else{
 			for(var i = 0,l = result.length;i < l;i++){
 				var score = parseInt(result[i].avg_score1) + parseInt(result[i].avg_score2) + parseInt(result[i].avg_score3);

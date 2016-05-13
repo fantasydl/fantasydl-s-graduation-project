@@ -47,7 +47,7 @@ indexApp.controller('travel',function($scope,$http){
 		oUrl = '../core/gettComments.php?travelid=' + types['travelid'];
 		$http.get(oUrl).success(function(result){
 			if(result == 'failed'){
-				alert('获取评论失败！');
+				$scope.clist = [];
 			}else{
 				$scope.clist = result;
 			}

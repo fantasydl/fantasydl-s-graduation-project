@@ -59,9 +59,12 @@
 	margin-top: 5px;
 }
 .container header .btn {
+	display: inline-block;
 	width: 120px;
 	height: 40px;
 	font-size: 17px;
+	line-height: 40px;
+	text-align: center;
 }
 .container header img {
 	position: absolute;
