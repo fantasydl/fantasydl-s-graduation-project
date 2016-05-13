@@ -36,19 +36,32 @@ for($x = 0;$x < count($row);$x++){
 for($x = 0;$x < count($temp);$x++){
 	$shopid = (int)$temp[$x]['shopid'];
 
-	$sql = "select * from shops where shopid = '${shopid}'";
+	$flag1 = true;
 
-	$ttt = fetchOne($sql);
-
-	$flag = true;
-	for($y = 0;$y < count($result);$y++){
-		if($ttt['shopid'] == $result[$y]['shopid']){
-			$flag = false;
+	for($y = 0;$y < count($row);$y++){
+		if($shopid == (int)$row[$y]['shopid']){
+			$flag1 = false;
 			break;
 		}
 	}
 
-	if($flag){
+	if(!$flag1){
+		break;
+	}
+
+	$sql = "select * from shops where shopid = '${shopid}'";
+
+	$ttt = fetchOne($sql);
+
+	$flag2 = true;
+	for($y = 0;$y < count($result);$y++){
+		if($ttt['shopid'] == $result[$y]['shopid']){
+			$flag2 = false;
+			break;
+		}
+	}
+
+	if($flag2){
 		array_push($result, $ttt);
 	}
 }
