@@ -55,7 +55,7 @@
 			<ul>
 				<li><a href="javascript:;" class="main on">全部分类</a></li>
 				<li><a href="index.html" class="tab">首页</a></li>
-				<li><a href="" class="tab">推荐</a></li>
+				<li><a href="rank.html" class="tab">推荐</a></li>
 				<li><a href="travelList.html" class="tab">游记</a></li>
 				<li><a href="javascript:;" class="tab">论坛</a></li>
 			</ul>
@@ -209,7 +209,7 @@
 			</div>
 			<ul>
 				<li ng-repeat="item in list">
-					<img src="images/yuyuan.jpg">
+					<img src="{{item.cover}}">
 					<div class="content">
 						<h2><a href="detail.html?shopid={{item.shopid}}">{{item.shopname}}</a></h2>
 						<div class="resume">

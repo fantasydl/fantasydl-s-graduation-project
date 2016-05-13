@@ -1,9 +1,9 @@
 // 登录、注册、退出控制器
 indexApp.controller('doLogin',function($scope,$http){
 
-	$scope.isLogined = window.sessionStorage.isLogined == 'true' ? true : false;
-	$scope.nickName = window.sessionStorage.curUser == 'undefined' ? undefined :  window.sessionStorage.curUser;
-	$scope.userId = window.sessionStorage.curUserId == 'undefined' ? undefined :  window.sessionStorage.curUserId;
+	$scope.isLogined = sessionStorage.isLogined == 'true' ? true : false;
+	$scope.nickName = sessionStorage.curUser == 'undefined' ? undefined :  window.sessionStorage.curUser;
+	$scope.userId = sessionStorage.curUserId == 'undefined' ? undefined :  window.sessionStorage.curUserId;
 	
 	$scope.showLogin = function () {
 		var loginModal = document.getElementById('loginModal');

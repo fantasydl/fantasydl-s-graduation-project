@@ -38,9 +38,14 @@ function update($table,$array,$where=null){
 		}else{
 			$sep=",";
 		}
-		$str.=$sep.$key."='".$val."'";
+		if(is_string($val)){
+			$str.=$sep.$key."=".$val;
+		}else{
+			$str.=$sep.$key."='".$val."'";
+		}
 	}
 		$sql="update {$table} set {$str} ".($where==null?null:" where ".$where);
+
 		$result=mysql_query($sql);
 		//var_dump(mysql_affected_rows());exit;
 		if($result){

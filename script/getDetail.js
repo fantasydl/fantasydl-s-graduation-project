@@ -28,12 +28,28 @@ indexApp.controller('getDetail',function($scope,$http){
 		console.log(result);
 		if(result == 'failed'){
 			$scope.clist = [];
-			alert('获取详情失败');
+			alert('获取评论失败');
 		}else{
 			for(var i = 0,l = result.length;i < l;i++){
 				result[i].score = parseInt(result[i].score);
 			}
 			$scope.clist = result;
 		}
-	})
+	});
+
+	$scope.praise = function (commentid) {
+		url = '../core/praise.php';
+		var data = {};
+		data.commentid = parseInt(commentid);
+		data.isCom = true;
+		console.log(data);
+
+		$http.post(url,data).success(function(result){
+			if(result == 'failed'){
+				alert('点赞失败！');
+			}else{
+				location.reload(true);
+			}
+		})
+	};
 })

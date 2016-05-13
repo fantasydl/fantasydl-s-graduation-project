@@ -8,3 +8,4 @@ indexApp.controller('getRank',function($scope,$http){
 		}
 	})
 })
+

@@ -55,7 +55,7 @@
 			<ul>
 				<li><a href="javascript:;" class="main on">全部分类</a></li>
 				<li><a href="index.html" class="tab">首页</a></li>
-				<li><a href="" class="tab">推荐</a></li>
+				<li><a href="rank.html" class="tab">推荐</a></li>
 				<li><a href="travelList.html" class="tab">游记</a></li>
 				<li><a href="javascript:;" class="tab">论坛</a></li>
 			</ul>
@@ -170,7 +170,7 @@
 						</div>
 						<div class="floor-bottom clearfix">
 							<span>时间: {{item.date}}</span>
-							<span><a href="">赞({{item.praise}})</a></span>
+							<span><a href="javascript:;" ng-click="praise(item.commentid)">赞({{item.praise}})</a></span>
 						</div>
 					</div>
 				</li>

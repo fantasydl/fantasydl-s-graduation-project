@@ -4,9 +4,9 @@ require_once '../include.php';
 $shopid = $_GET["shopid"];
 
 if($shopid == 0){
-	$sql = "select * from commentlists order by date desc limit 0,3";
+	$sql = "select * from commentlist order by date desc limit 0,3";
 }else{
-	$sql = "select * from commentlists where shopid = '${shopid}'";
+	$sql = "select * from commentlist where shopid = '${shopid}'";
 }
 
 $row = fetchAll($sql);

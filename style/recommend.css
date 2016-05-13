@@ -1,33 +1,7 @@
 .container {
-	min-height: 440px;
-}
-
-/* 列表部分 */
-.container article {
-	float: left;
-	width: 720px;
-	margin-top: 10px;
-	margin-left: 10px;
-}
-
-/* 回退nav */
-.container article .back-nav {
-	padding-left: 10px;
-	margin-bottom: 10px;
-	font-size: 13px;
-	line-height: 20px;
-}
-.container article .back-nav a {
-	padding: 0 10px 0 0;
-}
-.container article .back-nav a:hover {
-	color: #FF7200;
-	text-decoration: underline;
-}
-.container article .back-nav i {
-	margin: 0 6px;
-	color: #BBB;
-	font-size: 15px;
+	width: 850px;
+	min-height: 420px;
+	margin: 10px auto;
 }
 
 .container article ul {
