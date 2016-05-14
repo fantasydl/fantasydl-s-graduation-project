@@ -82,4 +82,4 @@ function xShowList (e) {
 	}else{
 		$('.pic-list').eq(2).show();
 	}
-}
+};
