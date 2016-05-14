@@ -28,7 +28,6 @@ indexApp.controller('getDetail',function($scope,$http){
 		console.log(result);
 		if(result == 'failed'){
 			$scope.clist = [];
-			alert('获取评论失败');
 		}else{
 			for(var i = 0,l = result.length;i < l;i++){
 				result[i].score = parseInt(result[i].score);

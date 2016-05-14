@@ -13,6 +13,7 @@
 	<script type="text/javascript" src="script/login.js"></script>
 	<script type="text/javascript" src="script/getComment.js"></script>
 	<script type="text/javascript" src="script/rank.js"></script>
+	<script type="text/javascript" src="script/commen.js"></script>
 </head>
 <body>
 	<header ng-controller="doLogin">
@@ -205,15 +206,15 @@
 		<article class="main">
 			<article class="center">
 				<section class="slide">
-					<ul class="slide-box">
+					<ul class="slide-box" id="slide-box">
 						<li><img src="images/slide1.jpg"></li>
 						<li><img src="images/slide2.png"></li>
 						<li><img src="images/slide3.jpg"></li>
 					</ul>
-					<ul class="slide-btns">
-						<li><a href="javascript:;" class="on">1</a></li>
-						<li><a href="javascript:;">2</a></li>
-						<li><a href="javascript:;">3</a></li>
+					<ul class="slide-btns" id="slide-btns">
+						<li><a href="javascript:;" class="on" onclick="xClick()">1</a></li>
+						<li><a href="javascript:;" onclick="xClick()">2</a></li>
+						<li><a href="javascript:;" onclick="xClick()">3</a></li>
 					</ul>
 				</section>
 				<section class="hot-nav">

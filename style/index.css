@@ -36,6 +36,17 @@
 	height: 100px;
 	overflow: hidden;
 }
+.container .main .center .slide .slide-box {
+	position: absolute;
+	-webkit-transtion: all .3s;
+	-moz-transtion: all .3s;
+	-ms-transtion: all .3s;
+	-o-transtion: all .3s;
+	transtion: all .3s;
+}
+.container .main .center .slide .slide-box li {
+	height: 100px;
+}
 .container .main .center .slide .slide-btns {
 	position: absolute;
 	right: 10px;

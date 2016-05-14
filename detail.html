@@ -12,6 +12,7 @@
 	<script type="text/javascript" src="script/app.js"></script>
 	<script type="text/javascript" src="script/login.js"></script>
 	<script type="text/javascript" src="script/getDetail.js"></script>
+	<script type="text/javascript" src="script/commen.js"></script>
 </head>
 <body>
 	<header ng-controller="doLogin">
@@ -114,7 +115,7 @@
 			</div>
 			<div class="address">地址: {{detail.address}}</div>
 			<div class="phone">电话: {{detail.phone}}</div>
-			<div class="more">
+			<div class="more" onclick="xFold()">
 				<a href="javascript:;">更多信息<i class="fa fa-chevron-down"></i></a>
 				<div>营业时间: {{detail.starttime}} -- {{detail.endtime}}</div>
 				<div>商户介绍: </div>
@@ -125,9 +126,9 @@
 		<section class="pic-show clearfix">
 			<nav class="clearfix">
 				<ul>
-					<li><a href="javascript:;" class="on">推荐</a></li>
-					<li><a href="javascript:;">环境</a></li>
-					<li><a href="javascript:;">官方相册</a></li>
+					<li><a href="javascript:;" class="on" onclick="xShowList()">推荐</a></li>
+					<li><a href="javascript:;" onclick="xShowList()">环境</a></li>
+					<li><a href="javascript:;" onclick="xShowList()">官方相册</a></li>
 				</ul>
 			</nav>
 			<div class="pic-list">
