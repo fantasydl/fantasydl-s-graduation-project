@@ -98,7 +98,6 @@ indexApp.controller('doLogin',function($scope,$http){
 		var url = '../core/search.php';
 		url = url + '?keywords=' + keywords;
 		$http.get(url).success(function(result){
-			console.log(result);
 			if(result){
 				$scope.srlist = result;
 				$('#searchResult').show();
@@ -106,5 +105,18 @@ indexApp.controller('doLogin',function($scope,$http){
 				$('#searchResult').hide();
 			}
 		})
+	};
+
+	$scope.check = function () {
+		var uname = $('#registername').val();
+		var url = '../core/checkusername.php';
+		url = url + '?username=' + uname;
+
+		$http.get(url).success(function(result){
+			if(result == 'failed'){
+				alert('该用户名已被注册');
+				$('#registername').val(null);
+			}
+		});
 	};
 });
