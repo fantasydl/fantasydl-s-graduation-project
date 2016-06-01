@@ -9,7 +9,7 @@ $array = fetchAll($sql);
 
 $cos = array();  
 $cos[0] = 0;  
-$fm1 = 0;  
+$fmOne = 0;  
 
 for($i=1;$i<count($array);$i++){  
     if($array[$i]['userid'] == $userid){  
@@ -24,15 +24,15 @@ $temp = count($array[$rank]);
 //计算分母1  
 for($i=1;$i<$temp;$i++){  
     if($array[$rank][$i] != null){ 
-        $fm1 += $array[$rank][$i] * $array[$rank][$i];  
+        $fmOne += $array[$rank][$i] * $array[$rank][$i];  
     }  
 }  
   
-$fm1 = sqrt($fm1);  
+$fmOne = sqrt($fmOne);  
   
 for($i=0;$i<count($array);$i++){  
     $fz = 0;  
-    $fm2 = 0;  
+    $fmTwo = 0;  
     echo "Cos(".$array[$rank][0].",".$array[$i][0].")=";  
       
     for($j=1;$j<$temp;$j++){  
@@ -42,11 +42,11 @@ for($i=0;$i<count($array);$i++){
         }  
         //计算分母2  
         if($array[$i][$j] != null){  
-            $fm2 += $array[$i][$j] * $array[$i][$j];  
+            $fmTwo += $array[$i][$j] * $array[$i][$j];  
         }             
     }  
-    $fm2 = sqrt($fm2);  
-    $cos[$i] = $fz/$fm1/$fm2;  
+    $fmTwo = sqrt($fmTwo);  
+    $cos[$i] = $fz/$fmOne/$fmTwo;  
     echo $cos[$i]."<br/>";  
 } 
 
@@ -71,68 +71,71 @@ $neighbour = array();//$neighbour只是对cos值进行排序并存储
 $neighbour = quicksort($cos);  
 
 
-//$neighbour_set 存储最近邻的人和cos值  
-$neighbour_set = array();  
+//$neighbour_score 存储最近邻的人和cos值  
+$neighbour_score = array();  
 for($i=0;$i<3;$i++){  
     for($j=0;$j<5;$j++){  
         if($neighbour[$i] == $cos[$j]){  
-            $neighbour_set[$i][0] = $j;  
-            $neighbour_set[$i][1] = $cos[$j];  
-            $neighbour_set[$i][2] = $array[$j][6];//邻居对f的评分  
-            $neighbour_set[$i][3] = $array[$j][7];//邻居对g的评分  
-            $neighbour_set[$i][4] = $array[$j][8];//邻居对h的评分  
+            $neighbour_score[$i][0] = $j;  
+            $neighbour_score[$i][1] = $cos[$j];  
+            $neighbour_score[$i][2] = $array[$j][6];
+            $neighbour_score[$i][3] = $array[$j][7]; 
+            $neighbour_score[$i][4] = $array[$j][8];  
         }  
     }  
 }  
-print_r($neighbour_set);  
+print_r($neighbour_score);  
 echo "<p><br/>";  
 
 //计算评分
+$p_result = array();
 $p_arr = array();  
 $pfz_f = 0;  
 $pfm_f = 0;  
 for($i=0;$i<3;$i++){  
-    $pfz_f += $neighbour_set[$i][1] * $neighbour_set[$i][2];  
-    $pfm_f += $neighbour_set[$i][1];  
+    $pfz_f += $neighbour_score[$i][1] * $neighbour_score[$i][2];  
+    $pfm_f += $neighbour_score[$i][1];  
 }  
 $p_arr[0][0] = 6;  
 $p_arr[0][1] = $pfz_f/sqrt($pfm_f);  
 if($p_arr[0][1]>3){  
-    echo "推荐f";  
+    array_push($p_result, $p_arr[0][1]);
 }  
   
 $pfz_g = 0;  
 $pfm_g = 0;  
 for($i=0;$i<3;$i++){  
-    $pfz_g += $neighbour_set[$i][1] * $neighbour_set[$i][3];  
-    $pfm_g += $neighbour_set[$i][1];  
+    $pfz_g += $neighbour_score[$i][1] * $neighbour_score[$i][3];  
+    $pfm_g += $neighbour_score[$i][1];  
     $p_arr[1][0] = 7;  
     $p_arr[1][1] = $pfz_g/sqrt($pfm_g);  
 }  
 if($p_arr[0][1]>3){  
-    echo "推荐g";  
+    array_push($p_result, $p_arr[0][1]); 
 }  
    
 $pfz_h = 0;  
 $pfm_h = 0;  
 for($i=0;$i<3;$i++){  
-    $pfz_h += $neighbour_set[$i][1] * $neighbour_set[$i][4];  
-    $pfm_h += $neighbour_set[$i][1];  
+    $pfz_h += $neighbour_score[$i][1] * $neighbour_score[$i][4];  
+    $pfm_h += $neighbour_score[$i][1];  
     $p_arr[2][0] = 8;  
     $p_arr[2][1] = $pfz_h/sqrt($pfm_h);  
 }  
 print_r($p_arr);  
 if($p_arr[0][1]>3){  
-    echo "推荐h";  
+    array_push($p_result, $p_arr[0][1]); 
 }  
 
 $f_result = array();
 
-// $shopid = 
+for($x = 0;$x < count($p_result);$++){
+    $shopid = $p_result['shopid']
 
-$sql = "select * from shops where shopid = '${shopid}'";
+    $sql = "select * from shops where shopid = '${shopid}'";
 
-$f_result[] = fetchOne($sql);
+    $f_result[] = fetchOne($sql);
+}
 
 echo json_encode($f_result);
 

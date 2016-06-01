@@ -10,12 +10,16 @@ indexApp.controller('getshopList',function($scope,$http){
 	var url = '../core/getshopList.php';
 	url = url + "?category=" + types['type1'];
 	$scope.levelOne = types['type1'];
-	if(argUrl.length > 1){
+	if(types['type2']){
 		url = url + "&special=" + types['type2'];
 		$scope.levelTwo = types['type2'];
 	}
+	if(types['orderby']){
+		url = url + "&orderby=true";
+	}
 
 	$http.get(url).success(function(result){
+		console.log(result);
 		if(result == 'failed'){
 			$scope.list = [];
 			alert('暂无该类店铺！');

@@ -60,9 +60,15 @@ function xFold (e) {
 	var xHeight = $(target).parent().height();
 	var minHeight = 25;
 	if(xHeight == 25){
-		$(target).parent().css('height','auto')
+		$(target).parent().css('height','auto');
+		$('#showless').show();
+		$('#showmore').hide();
 	}else{
-		$(target).parent().animate({height:minHeight + 'px'})
+		$(target).parent().animate({height:minHeight + 'px'},function(){
+			$('#showmore').show();
+			$('#showless').hide();
+		});
+		
 	}	
 };
 

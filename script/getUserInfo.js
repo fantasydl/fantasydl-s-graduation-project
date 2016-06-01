@@ -52,7 +52,7 @@ indexApp.controller('getUserInfo',function($scope,$http){
 			result = JSON.parse(result);
 			console.log(result[0]);
 			$scope.userInfo.icon = 'uploads/' + result[0].icon;
-			
+			$('.image-upload').find('img').prop('src',$scope.userInfo.icon);
 		}).fail(function(error){
 			alert('上传失败！');
 		});  

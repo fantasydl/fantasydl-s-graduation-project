@@ -95,7 +95,7 @@
 			</div>
 		</div>
 	</header>
-	<div class="container" ng-controller="travel">
+	<div class="container clearfix" ng-controller="travel">
 		<article class="clearfix">
 			<h1>{{title}}</h1>
 			<div id="content">
@@ -117,6 +117,7 @@
 		<div class="comment-list">
 			<h2>评论</h2>
 			<ul>
+				<li style="font-size:24px;text-align:center;" ng-show="noComm">暂无点评</li>
 				<li ng-repeat="item in clist">
 					<img src="{{item.usericon}}">
 					<div class="floor-content">
@@ -134,7 +135,6 @@
 			</ul>
 		</div>
 	</div>
-
 	<footer>
 		<div>@fantasydl-s-granduation-project</div>
 	</footer>

@@ -105,23 +105,24 @@
 				<dl>
 					<dt>人均:</dt>
 					<dd>{{detail.avg_cost}}元</dd>
-					<dt>内容:</dt>
+					<dt>位置:</dt>
 					<dd>{{detail.avg_score1}}</dd>
 					<dt>环境:</dt>
 					<dd>{{detail.avg_score2}}</dd>
-					<dt>划算:</dt>
+					<dt>性价比:</dt>
 					<dd>{{detail.avg_score3}}</dd>
 				</dl>
 			</div>
 			<div class="address">地址: {{detail.address}}</div>
 			<div class="phone">电话: {{detail.phone}}</div>
-			<div class="more" onclick="xFold()">
-				<a href="javascript:;">更多信息<i class="fa fa-chevron-down"></i></a>
+			<div class="more" >
+				<a href="javascript:;" id="showmore" onclick="xFold()">更多信息<i class="fa fa-chevron-down"></i></a>
+				<a href="javascript:;" id="showless" style="display:none;" onclick="xFold()">收起<i class="fa fa-chevron-down" style="transform:rotate(180deg);"></i></a>
 				<div>营业时间: {{detail.starttime}} -- {{detail.endtime}}</div>
-				<div>商户介绍: </div>
+				<div>商户介绍: {{detail.content}}</div>
 			</div>
 			<a href="comment.html?shopid={{detail.shopid}}" class="btn"><i class="fa fa-pencil-square-o"></i> 写点评</a>
-			<img src="{{detail.cover}}.jpg">
+			<img src="{{detail.shopcover}}">
 		</header>
 		<section class="pic-show clearfix">
 			<nav class="clearfix">
@@ -144,6 +145,7 @@
 		<section class="comment-list">
 			<h2>点评</h2>
 			<ul>
+				<li style="font-size:24px;text-align:center;" ng-show="noComm">暂无点评</li>
 				<li ng-repeat="item in clist">
 					<img src="{{item.icon}}">
 					<div class="floor-content">
@@ -166,7 +168,7 @@
 　　					</p>
 						<div class="detail-pics clearfix">
 							<ul>
-								<li ng-repeat="pic in item.albums"><img src="{{pic}}" alt="图片"></li>
+								<li ng-repeat="pic in item.album"><img src="{{pic}}" alt="图片"></li>
 							</ul>
 						</div>
 						<div class="floor-bottom clearfix">

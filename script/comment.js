@@ -28,7 +28,8 @@ indexApp.controller('setComment',function($scope,$http){
 		if(types['travelid']){
 			var url = '../core/tcomment.php';
 			data.travelid = parseInt(types['travelid']);
-			data.content = $('#content').val();	
+			data.content = $('#content2').val();	
+			console.log(data);
 			$http.post(url,data).success(function(result){
 				if(result == 'success'){
 					alert('评论成功！');

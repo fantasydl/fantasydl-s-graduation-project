@@ -3,6 +3,7 @@ require_once '../include.php';
 
 $category = $_GET["category"];
 $special = $_GET["special"];
+$orderby = $_GET["orderby"];
 
 if(empty($category)){
 	$sql = "select * from shops where special = '${special}'";
@@ -10,6 +11,10 @@ if(empty($category)){
 	$sql = "select * from shops where category = '${category}'";
 }else{
 	$sql = "select * from shops where category = '${category}' and special = '${special}'";
+}
+
+if(!empty($orderby)){
+	$sql = $sql." order by comcount and shopid desc";
 }
 
 $row = fetchAll($sql);

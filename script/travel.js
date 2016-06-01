@@ -48,7 +48,9 @@ indexApp.controller('travel',function($scope,$http){
 		$http.get(oUrl).success(function(result){
 			if(result == 'failed'){
 				$scope.clist = [];
+				$scope.noComm = true;
 			}else{
+				$scope.noComm = false;
 				$scope.clist = result;
 			}
 		});
@@ -70,6 +72,7 @@ indexApp.controller('travel',function($scope,$http){
 			alert('上传成功！');
 			result = JSON.parse(result);
 			$scope.cover = 'uploads/' + result[0].icon;
+			$('.cover-img').prop('src',$scope.cover);
 		}).fail(function(error){
 			alert('上传失败！');
 		});  

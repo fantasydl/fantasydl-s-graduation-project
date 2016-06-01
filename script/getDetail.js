@@ -17,6 +17,7 @@ indexApp.controller('getDetail',function($scope,$http){
 		}else{
 			var score = parseInt(result.avg_score1) + parseInt(result.avg_score2) + parseInt(result.avg_score3);
 			result.score = parseInt(score/3);
+			result.album = result.albums ? result.albums.split(';') : [];
 			$scope.detail = result;
 		}
 	});
@@ -25,14 +26,18 @@ indexApp.controller('getDetail',function($scope,$http){
 	url = url + "?shopid=" + types['shopid'];
 
 	$http.get(url).success(function(result){
-		console.log(result);
 		if(result == 'failed'){
+			$scope.noComm = true;
 			$scope.clist = [];
 		}else{
+			console.log(result);
 			for(var i = 0,l = result.length;i < l;i++){
 				result[i].score = parseInt(result[i].score);
+				result[i].album = result[i].albums ? result[i].albums.split(';') : [];
 			}
+			$scope.noComm = false;
 			$scope.clist = result;
+			console.log(result);
 		}
 	});
 

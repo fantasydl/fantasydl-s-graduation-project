@@ -1,7 +1,7 @@
 <?php
 require_once '../include.php';
 
-$sql = "select * from travels";
+$sql = "select * from travels order by travelid desc";
 
 $row = fetchAll($sql);
 

@@ -98,6 +98,7 @@ indexApp.controller('doLogin',function($scope,$http){
 		var url = '../core/search.php';
 		url = url + '?keywords=' + keywords;
 		$http.get(url).success(function(result){
+			console.log(result);
 			if(result){
 				$scope.srlist = result;
 				$('#searchResult').show();

@@ -13,7 +13,7 @@ indexApp.controller('getRecommend',function($scope,$http){
 		console.log(result);
 		if(result){
 			if(result.length == 0){
-				alert('抱歉，没有推荐给您的餐厅了！');
+				alert('抱歉，没有推荐给您的商铺了！');
 				window.history.go(-1);
 			}
 			$scope.list = result;

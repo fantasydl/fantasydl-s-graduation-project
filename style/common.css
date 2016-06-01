@@ -87,6 +87,7 @@ header .search-part .search .search-bar .search-result {
 	width: 400px;
 	background-color: #FFF;
 	border: 1px solid #E9E9E9;
+	z-index: 999;
 }
 header .search-part .search .search-bar .search-result li {
 	width: 100%;
